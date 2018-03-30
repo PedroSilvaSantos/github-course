@@ -1,0 +1,22 @@
+//if(IGNORE_EXClUSION_AMOSTRA_E_AMBIENTACAO){
+    if(![kSharedApplication expurgarBase]){ // expurgoDaBase (Isaac Sena)
+         [self logTransferencia:@"Mantendo dados de Cronogramas Equipe"];
+    }else{
+        //Deleta as Cronogramas Equipe
+        if (DEBUG_FULL) {
+            
+            [self logTransferencia:@"Deleta os Cronogramas Equipe"];
+        }
+        //NSLog(@"Deleta os Cronogramas Equipe: %@", [[NSDate date] description]);
+        [Entity runSQL:@"delete from ambientacao_equipe"];
+        
+        //Deleta as Colaborador Previa Estudo
+        if (DEBUG_FULL) {
+            
+            [self logTransferencia:@"Deleta os Colaborador Previa Estudo"];
+        }
+        //NSLog(@"Deleta os Colaborador Previa Estudo: %@", [[NSDate date] description]);
+        [Entity runSQL:@"delete from ambientacao_funcionario"];
+    }
+    
+    
